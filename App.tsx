@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState([
@@ -11,37 +11,30 @@ export default function App() {
     { id: 4, age: 12, name: 'e' },
     { id: 5, age: 12, name: 'r' },
     { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-    { id: 6, age: 12, name: '6' },
-  ]);
+  ])
 
   return (
     <View style={styles.container}>
       <Text>My application</Text>
-      <ScrollView>
+
+      <FlatList
+        data={name}
+        keyExtractor={item => item.id as unknown as string}
+        renderItem={({ item }) => (
+          <View
+            style={{
+              backgroundColor: 'pink',
+              marginBottom: 30,
+              padding: 30
+            }}
+          >
+            <Text>id:{item.id}/ age: {item.age}/ name: {item.name}</Text>
+          </View>
+        )}
+      />
+
+
+      {/* <ScrollView>
         {
           name.map(item => (
             <View
@@ -55,7 +48,7 @@ export default function App() {
             </View>
           ))
         }
-      </ScrollView>
+      </ScrollView> */}
 
 
     </View>
