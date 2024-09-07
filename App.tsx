@@ -5,12 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Huu Dung</Text>
-      <Text style={{
-        color: 'red',
-        fontSize: 44,
-        borderColor: '1px solid blue',
-        borderWidth: 1
-      }}>day là 1 div</Text>
+      <Text style={styles.div}>day là 1 div</Text>
     </View>
   );
 }
@@ -22,4 +17,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  div: {
+    color: 'red',
+    fontSize: 44,
+    borderColor: '1px solid blue',
+    borderWidth: 1
+  }
 });
