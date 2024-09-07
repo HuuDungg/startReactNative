@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Huu Dung</Text>
-      <StatusBar style="auto" />
+      <Text style={{
+        color: 'red',
+        fontSize: 44,
+        borderColor: '1px solid blue',
+        borderWidth: 1
+      }}>day là 1 div</Text>
     </View>
   );
 }
