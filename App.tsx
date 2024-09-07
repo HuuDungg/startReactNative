@@ -1,36 +1,63 @@
 
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState<string>('Tran Huu Dung hihi');
-  const [count, setCount] = useState<number>(0);
+  const [name, setName] = useState([
+    { id: 7, age: 12, name: 'a' },
+    { id: 1, age: 12, name: 'b' },
+    { id: 2, age: 12, name: 'v' },
+    { id: 3, age: 12, name: 'd' },
+    { id: 4, age: 12, name: 'e' },
+    { id: 5, age: 12, name: 'r' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+    { id: 6, age: 12, name: '6' },
+  ]);
 
   return (
     <View style={styles.container}>
+      <Text>My application</Text>
+      <ScrollView>
+        {
+          name.map(item => (
+            <View
+              style={{
+                backgroundColor: 'pink',
+                marginBottom: 30,
+                padding: 30
+              }}
+            >
+              <Text key={item.id}>id: {item.id}/ age: {item.age}/ name: {item.name}</Text>
+            </View>
+          ))
+        }
+      </ScrollView>
 
-      <Text>{name}</Text>
-      <Text>{count}</Text>
-      <View >
-        <Button
-          color={'red'}
-          onPress={() => {
-            setCount(count + 1);
-            alert('tab me ' + count)
-          }} title='hub' />
-        <TextInput
-          onChange={(value) => {
-            setName(value.nativeEvent.text)
-          }}
-          keyboardType='numeric'
-          style={{
-            borderColor: 'black',
-            borderWidth: 1,
-            paddingRight: 80,
-          }}
-          maxLength={2}
-        />
-      </View>
+
     </View>
   );
 }
@@ -39,13 +66,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginHorizontal: 50,
+    marginVertical: 50
   },
-  div: {
-    color: 'red',
-    fontSize: 44,
-    borderColor: '1px solid blue',
-    borderWidth: 1,
-  }
+
 });
