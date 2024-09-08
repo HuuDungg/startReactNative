@@ -6,9 +6,12 @@ import DetailApp from "./component/review/detail"
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { FONT_REGULAR } from "./utils/const"
+
+SplashScreen.preventAutoHideAsync();
 const App = () => {
     const [loaded, error] = useFonts({
-        'Inter-Black': require('./assets/fonts/OpenSans-Regular.ttf'),
+        [FONT_REGULAR]: require('./assets/fonts/OpenSans-Regular.ttf'),
     });
 
     useEffect(() => {
