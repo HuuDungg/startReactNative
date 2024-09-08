@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, TextInput, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Button } from 'react-native-elements';
 import FlexBox from './component/flex.box';
-
+import Feather from '@expo/vector-icons/Feather';
+import Ionicons from '@expo/vector-icons/Ionicons';
 interface Todo {
   id: number,
   name?: string
@@ -44,33 +45,36 @@ export default function App() {
   };
 
   return (
-    // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    //   <View style={styles.container}>
-    //     <Text style={styles.header}>Tran Huu Dung</Text>
-    //     <TextInput
-    //       onChangeText={(text) => setTodo(text)}
-    //       value={todo}
-    //       style={styles.inputField}
-    //       placeholder="Enter a todo"
-    //     />
-    //     <View style={styles.btn}>
-    //       <Button onPress={addTodo} title='Add' />
-    //     </View>
-    //     <FlatList
-    //       data={listTodo}
-    //       renderItem={({ item }) => (
-    //         <View style={styles.todoItem}>
-    //           <Text>id: {item.id} | name: {item.name} </Text>
-    //           <Button onPress={() => deleteTodo(item.id)} title='Delete' />
-    //         </View>
-    //       )}
-    //       keyExtractor={item => item.id.toString()}
-    //     />
-    //   </View>
-    // </TouchableWithoutFeedback>
-    <View>
-      <FlexBox />
-    </View>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+        <Text style={styles.header}>Tran Huu Dung</Text>
+        <TextInput
+          onChangeText={(text) => setTodo(text)}
+          value={todo}
+          style={styles.inputField}
+          placeholder="Enter a todo"
+          onSubmitEditing={() => {
+            addTodo()
+          }}
+        />
+        <View style={styles.btn}>
+          <Ionicons onPress={addTodo} name="create-outline" size={24} color="black" />
+        </View>
+        <FlatList
+          data={listTodo}
+          renderItem={({ item }) => (
+            <View style={styles.todoItem}>
+              <Text style={styles.text}>id: {item.id} | name: {item.name} </Text>
+              <Feather onPress={() => deleteTodo(item.id)} name="trash" size={24} color="black" />
+            </View>
+          )}
+          keyExtractor={item => item.id.toString()}
+        />
+      </View>
+    </TouchableWithoutFeedback>
+    // <View>
+    //   <FlexBox />
+    // </View>
   );
 }
 
@@ -101,9 +105,20 @@ const styles = StyleSheet.create({
   btn: {
     width: 100,
     marginTop: 20,
+
+    borderColor: 'gray',
+    borderWidth: 1
   },
   todoItem: {
     marginVertical: 10,
     alignItems: 'center',
+    flexDirection: 'row',
+    gap: 30,
+    borderColor: 'gray',
+    borderWidth: 1,
+    padding: 10
   },
+  text: {
+    width: 150
+  }
 });
