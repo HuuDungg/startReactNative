@@ -5,7 +5,9 @@ const DetailApp = () => {
     return (
         <>
             <View>
-                <Text>this is detail page</Text>
+                <Text style={{
+                    fontFamily: 'Inter-Black'
+                }}>this is detail page</Text>
             </View>
         </>
     )
