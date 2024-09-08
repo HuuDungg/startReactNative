@@ -1,11 +1,17 @@
 import { View } from "react-native"
-import { Text } from "react-native-elements"
+import { Button, Text } from "react-native-elements"
+import * as React from 'react';
 
-const HomeApp = () => {
+
+const HomeApp = ({ navigation }: any) => {
     return (
         <>
             <View>
                 <Text>this is home page</Text>
+                <Button
+                    title="Go to Details"
+                    onPress={() => navigation.navigate('Detail1')}
+                />
             </View>
         </>
     )

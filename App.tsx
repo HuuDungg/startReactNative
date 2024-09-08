@@ -7,6 +7,10 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { FONT_REGULAR } from "./utils/const"
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
 
 SplashScreen.preventAutoHideAsync();
 const App = () => {
@@ -23,13 +27,15 @@ const App = () => {
     if (!loaded && !error) {
         return null;
     }
-
+    const Stack = createNativeStackNavigator();
     return (
-        <View style={styles.container}>
-            <AboutApp />
-            <HomeApp />
-            <DetailApp />
-        </View>
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="Home" component={HomeApp} />
+                <Stack.Screen name="Detail1" component={DetailApp} options={{ title: 'Mov mov mov', animation: "simple_push" }} />
+                <Stack.Screen name="About" component={AboutApp} />
+            </Stack.Navigator>
+        </NavigationContainer>
     )
 }
 
